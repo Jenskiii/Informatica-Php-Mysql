@@ -13,11 +13,12 @@ function signup_fill_username()
     }
 
 }
+
 function signup_fill_email()
 {
     // email
     if (
-        isset($_SESSION["signup_data"]["username"]) &&
+        isset($_SESSION["signup_data"]["email"]) &&
         !isset($_SESSION['errors_signup']['email_used'])
         && !isset($_SESSION['errors_signup']['invalid_email'])
     ) {

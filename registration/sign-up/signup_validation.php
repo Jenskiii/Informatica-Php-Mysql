@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         // signup user + return to login
         create_user($pdo, $username, $email, $pwd);
-        header("Location: ../../index.php?signup=succes");
+        header("Location: ../login/login.php?signup=succes");
 
         // clear signup data
         unset($_SESSION["signup_data"]);

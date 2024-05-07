@@ -14,7 +14,7 @@ return_to_home_page();
 <!-- content -->
 <main class="container center-main">
     <!-- prompt message -->
-    <?php is_signup_successful() ?>
+    <?php is_signup_successful() ;?>
 
     <h1 class="heading-1 mb-1 center-text">Log in</h1>
 
@@ -23,17 +23,18 @@ return_to_home_page();
 
     <form class="form" action="login_validation.php" method="post">
         <div class="form-group">
-            <label for="gebruikersnaam_login">Gebruikersnaam:</label>
+            <label for="gebruikersnaam_login">Gebruikersnaam:*</label>
             <input type="text" id="gebruikersnaam_login" name="gebruikersnaam_login" placeholder="pietjebel12"
                 autofocus>
         </div>
         <div class="form-group">
-            <label for="wachtwoord_login">Wachtwoord:</label>
+            <label for="wachtwoord_login">Wachtwoord:*</label>
             <input type="password" id="wachtwoord_login" name="wachtwoord_login" placeholder="***********">
         </div>
 
-        <p class="center-text">Nog geen account ? &nbsp;&nbsp;<a class="link"
-                href="./registration/sign-up/signup.php">aanmelden</a></p>
+        <p class="center-text">Nog geen account ?
+            &nbsp;&nbsp;<a class="link" href="../sign-up/signup.php">aanmelden</a>
+        </p>
         <button class="btn" type="submit">Log in</button>
     </form>
 

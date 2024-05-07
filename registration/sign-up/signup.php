@@ -21,29 +21,27 @@ require_once './signup_view.php';
 
     <form class="form" action="signup_validation.php" method="post" novalidate>
         <div class="form-group">
-            <label for="gebruikersnaam">Gebruikersnaam:</label>
+            <label for="gebruikersnaam">Gebruikersnaam:*</label>
             <?php signup_fill_username()?>
         </div>
 
         <div class="form-group">
-            <label for="email">Email:</label>
+            <label for="email">Email:*</label>
             <?php signup_fill_email()?>
         </div>
 
         <div class="form-group">
-            <label for="wachtwoord">Wachtwoord:</label>
+            <label for="wachtwoord">Wachtwoord:*</label>
             <input type="password" id="wachtwoord" name="wachtwoord">
         </div>
 
         <div class="form-group">
-            <label for="wachtwoord_bevestigen">Wachtwoord bevestigen:</label>
+            <label for="wachtwoord_bevestigen">Wachtwoord bevestigen:*</label>
             <input type="password" id="wachtwoord_bevestigen" name="wachtwoord_bevestigen">
         </div>
 
         <button class="btn" type="submit">Aanmelden</button>
     </form>
-
-
 </main>
 <!-- import footer -->
 <?php require_once '../../includes/footer.php'; ?>

@@ -1,6 +1,6 @@
 <?php
 function get_family_members($pdo, $familyId){
-    $query = "SELECT * FROM familielid WHERE familie_id = :familie_id;";
+    $query = "SELECT * FROM familielid WHERE familie_id = :familie_id ORDER BY geboortedatum;";
     $stmt = $pdo->prepare($query);
     $stmt->bindParam(":familie_id", $familyId);
     $stmt->execute();

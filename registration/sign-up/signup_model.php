@@ -25,7 +25,7 @@ function get_email($pdo, $email)
 }
 
 
-
+// add user to db
 function set_user($pdo, $username, $email, $pwd)
 {
     $query = "INSERT gebruikers (gebruikersnaam, email, wachtwoord) 
