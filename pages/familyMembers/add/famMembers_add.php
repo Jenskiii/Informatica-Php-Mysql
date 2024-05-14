@@ -14,7 +14,9 @@ require_once 'famMembers_add_view.php';
 
     <h1 class="heading-1 mb-1 center-text">Familielid toevoegen</h1>
 
-
+    <!-- errors -->
+    <?php check_signup_errors() ?>
+    
     <!-- form -->
     <form class="form" action="famMembers_add_validation.php" method="post" novalidate>
         <!-- firstname -->
@@ -32,7 +34,7 @@ require_once 'famMembers_add_view.php';
         </div>
 
         <div class="form-group">
-            <label for="family_woonplaats">Geboortedatum:*</label>
+            <label for="family_woonplaats">Geboortedatum:* <small>(11/22/1990)</small></label>
             <input type="date" name="famMember_add_birthday" id="famMember_add_birthday">
         </div>
 

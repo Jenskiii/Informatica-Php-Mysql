@@ -6,3 +6,13 @@ function return_to_login(){
         die();
     }
 }
+
+// calculate total contribution of all family members together
+function calculate_total_contribution($arrays){
+    $sum = 0;
+    foreach($arrays as $array){
+       $sum += $array["bedrag"];
+    }
+
+    return $sum;
+}

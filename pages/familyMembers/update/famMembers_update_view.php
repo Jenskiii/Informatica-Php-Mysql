@@ -46,3 +46,19 @@ function fill_familyMemberId_input()
     echo '<input type="hidden" name="famMembers_update_memberId" id="famMembers_update_memberId" 
     value="' . $_SESSION["famMembers_update_data"]["memberId"] . '">';
 }
+
+// show errors
+function check_signup_errors()
+{
+    if (isset($_SESSION['errors_famMembers_update'])) {
+        $errors = $_SESSION['errors_famMembers_update'];
+
+
+        foreach ($errors as $error) {
+            echo "<p class='error-msg'>" . $error . "</p >";
+        }
+
+        // remove session var
+        unset($_SESSION['errors_famMembers_update']);
+    }
+}

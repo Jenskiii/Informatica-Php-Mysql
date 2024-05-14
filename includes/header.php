@@ -24,6 +24,14 @@ require_once "header.view.php";
             <?php
             // if logged in show nav
             if (isset($_SESSION["user_username"])) { ?>
+                <nav>
+                    <form action="<?php echo $path; ?>index.php" method="post">
+                        <button class="btn link">Home</button>
+                    </form>
+                    <form action="/LedenAdministratie/pages/bookyears/bookyears_contr.php" method="post">
+                        <button class="btn link">Boekjaar</button>
+                    </form>
+                </nav>
                 <div class="user">
                     <?php output_username() ?>
                     <form action="<?php echo $path; ?>registration/logout/logout.php">

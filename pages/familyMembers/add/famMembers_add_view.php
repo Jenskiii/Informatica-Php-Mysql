@@ -29,3 +29,19 @@ function fill_membership_options()
 
     }
 }
+
+// show errors
+function check_signup_errors()
+{
+    if (isset($_SESSION['famMembers_add_errors'])) {
+        $errors = $_SESSION['famMembers_add_errors'];
+
+
+        foreach ($errors as $error) {
+            echo "<p class='error-msg'>" . $error . "</p >";
+        }
+
+        // remove session var
+        unset($_SESSION['famMembers_add_errors']);
+    }
+}

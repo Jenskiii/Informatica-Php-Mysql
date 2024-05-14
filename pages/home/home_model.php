@@ -7,3 +7,12 @@ function get_families($pdo){
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $results;
 }
+
+function get_contribution($pdo, $familyId){
+    $query = "SELECT bedrag FROM contributie WHERE familie_id = :familie_id";
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(":familie_id", $familyId);
+    $stmt->execute();
+    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $results;
+}

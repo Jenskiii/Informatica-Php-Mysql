@@ -77,7 +77,20 @@ body {
   margin-left: auto;
   gap: 1rem;
 }
-@media (max-width: 32rem) {
+
+.header_wrapper nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.header_wrapper nav::before,
+.header_wrapper nav::after {
+  content: "|";
+  color: hsl(var(--clr-white));
+}
+
+@media (max-width: 42rem) {
   .header_wrapper {
     flex-direction: column;
     align-items: center;
@@ -85,6 +98,11 @@ body {
   }
   .header .user {
     margin-left: 0;
+  }
+}
+@media (min-width: 42rem) {
+  .header_wrapper nav {
+    margin-left: 2rem;
   }
 }
 
@@ -155,6 +173,16 @@ body {
 .btn.green:is(:hover, :active) {
   background-color: hsl(var(--clr-green-400) / 0.5);
 }
+
+.btn.link {
+  color: hsl(var(--clr-red-400));
+  background-color: transparent;
+  padding: 0;
+}
+.btn.link:is(:hover, :active) {
+  color: hsl(var(--clr-red-400) / 0.5);
+}
+
 .back-btn {
   position: absolute;
   left: 10%;
@@ -320,6 +348,10 @@ body {
 .card_information {
   grid-area: info;
 }
+
+.card_information span{
+  font-weight: 700;
+}
 .card_delete {
   grid-area: delete;
   justify-self: end;
@@ -408,11 +440,11 @@ body {
 }
 
 .home-grid {
-  margin-top: 1.5rem;
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
-  max-height: 500px;
+  grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
+  max-height: 35rem;
+  margin-top: 1.5rem;
   overflow-y: auto;
 }
 
@@ -431,7 +463,49 @@ body {
   border-spacing: 0 1rem;
 }
 
-.familyMembers .space-between{
+.familyMembers .space-between {
   margin-bottom: 2rem;
 }
 
+/* BOOKYEARS */
+.bookyears {
+  margin-block: 2rem;
+}
+.bookyears .search-filter {
+  display: flex;
+  margin-block: 1rem;
+}
+
+.bookyears_grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(13rem, 100%), 1fr));
+  margin-top: 1rem;
+  overflow-y: auto;
+  max-height: 35rem;
+}
+
+.bookyears_contribution {
+  background-color: hsl(var(--clr-blue-800));
+  padding: 1rem;
+  border-radius: 8px;
+  border: solid 1px hsl(var(--clr-white));
+  font-size: var(--fs-300);
+}
+
+.bookyears_contribution span {
+  color: hsl(var(--clr-white) / 0.5);
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+@media (min-width: 42rem) {
+  .bookyears .search-filter {
+    flex-direction: row;
+    gap: 2rem;
+  }
+
+  .bookyears .search-filter select {
+    max-width: 10rem;
+  }
+}

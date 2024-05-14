@@ -15,26 +15,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         // FORM VALIDATION
         $errors = [];
 
-        // if (is_input_empty($surname, $residence, $address, $zipcode)) {
-        //     $errors["empty_input"] = "Alle velden verplicht!";
-        // }
+        if (is_input_empty($fName, $birthday, $membership)) {
+            $errors["empty_input"] = "Alle velden verplicht!";
+        }
 
+        if (is_firstname_invalid($fName)) {
+            $errors["invalid_firstname"] = "Voornaam kan geen nummers bevatten!";
+        }
 
         // bind error to session + return to signup page
         require_once ("../../../includes/session.php");
         if ($errors) {
-            $_SESSION["errors_famMembers_add"] = $errors;
+            $_SESSION["famMembers_add_errors"] = $errors;
 
-            $familyMembersAddData = [
-                "surname" => $surname,
-                "residence" => $residence,
-                "address" => $address,
-                "zipcode" => $zipcode,
-            ];
-
-            $_SESSION["family_add_data"] = $familyMembersAddData;
-
-            header("Location: ./f_add.php");
+            header("Location: ./famMembers_add.php?familyId=$familyId");
             // reset pdo
             $pdo = null;
             $stmt = null;
@@ -43,6 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         // signup user + return to login
         create_familyMember($pdo, $familyId, $fName, $lName, $birthday, $membership);
+
         header("Location: ../famMembers.php?familyId=$familyId&memberAdded=success");
 
         // clear signup data

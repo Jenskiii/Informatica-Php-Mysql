@@ -14,21 +14,12 @@ return_to_login();
 
         <?php is_handled_successful("index.php"); ?>
 
-        <div class="space-between">
-            <!-- search bar -->
-            <form class="search-bar" action="" method="post">
-                <label for="search-family">
-                    <img src="./assets/images/icon-search.svg" alt="search icon">
-                    <input type="search" name="search-family" id="search-family">
-                </label>
-                <button class="btn">Zoeken</button>
-            </form>
 
-            <!-- add familie's -->
-            <form action="./pages/families/add/f_add.php">
-                <button class="btn green">Familie toevoegen</button>
-            </form>
-        </div>
+        <!-- add familie's -->
+        <form action="./pages/families/add/f_add.php">
+            <button type="submit" class="btn green">Familie toevoegen</button>
+        </form>
+
 
 
         <div class="home-grid">

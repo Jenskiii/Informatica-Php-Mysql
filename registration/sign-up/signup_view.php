@@ -30,7 +30,7 @@ function signup_fill_email()
 }
 
 
-// show email errors
+// show errors
 function check_signup_errors()
 {
     if (isset($_SESSION['errors_signup'])) {

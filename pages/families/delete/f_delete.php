@@ -20,7 +20,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         die();
 
     } catch (PDOException $e) {
-        die("Query error" . $e->getMessage());
+        if ($e->errorInfo[1] === 1451) {
+            header("Location: ../../../index.php?familyDeleteError=fail");
+            // reset pdo
+            $pdo = null;
+            $stmt = null;
+            die();
+        } else {
+            die("Query error" . $e->getMessage());
+        }
+
     }
 
 } else {

@@ -13,7 +13,7 @@ require_once 'famMembers_update_view.php';
     <a class="btn back-btn" href="../famMembers.php?familyId=<?php echo $_GET["familyId"] ?>">&lArr;</a>
 
     <h1 class="heading-1 mb-1 center-text">Familielid aanpassen</h1>
-
+    <?php check_signup_errors() ?>
     <form class="form" action="famMembers_update_validation.php" method="post" novalidate>
         <div class="form-group">
             <label for="f_update_achternaam">Voornaam:*</label>
@@ -21,7 +21,7 @@ require_once 'famMembers_update_view.php';
         </div>
 
         <div class="form-group">
-            <label for="f_update_woonplaats">Geboortedatum:*</label>
+            <label for="f_update_woonplaats">Geboortedatum:* <small>(11/22/1990)</small></label>
             <?php fill_birthday_input() ?>
         </div>
 
