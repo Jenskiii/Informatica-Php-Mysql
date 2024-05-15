@@ -6,6 +6,19 @@ function update_family($pdo, $id, $surname, $residence, $address, $zipcode)
 }
 
 
+function update_familyMember_names($pdo, $familyId, $surname)
+{
+    set_familyMember($pdo, $familyId, $surname);
+}
+
+
+function update_booking($pdo, $familyId, $surname)
+{
+    set_updated_booking($pdo, $familyId, $surname);
+}
+
+
+
 // //  VALIDATION
 // check if address is taken and fixes error if new address matches old address
 function is_address_taken($pdo, $id, $newAddress)
@@ -16,10 +29,12 @@ function is_address_taken($pdo, $id, $newAddress)
         return false;
     } else if ($oldAdress !== null && $oldAdress !== $newAddress) {
         return true;
-    }else{
+    } else {
         return false;
     }
 
 }
+
+
 
 

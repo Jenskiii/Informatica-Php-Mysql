@@ -42,12 +42,12 @@ function show_family_members($pdo, $familyId)
 
               // if member already booked for this year hide book button
       if ($bookings["boekjaar"]  !== date("Y")) {
-        echo '      <form class="card_update" action="./booking/famMembers_booking.php" method="post">
-                <input type="hidden" name="booking_familyMember_id" id="booking_familyMember_id"
-                value="' . htmlspecialchars($result["id"]) . '">
-                <input type="hidden" name="booking_family_id" id="booking_family_id"
-                value="' . htmlspecialchars($familyId) . '">
-                <button class="btn green">Boeken</button>
+        echo '<form class="card_update" action="./booking/famMembers_booking.php" method="post">
+                  <input type="hidden" name="booking_familyMember_id" id="booking_familyMember_id"
+                  value="' . htmlspecialchars($result["id"]) . '">
+                  <input type="hidden" name="booking_family_id" id="booking_family_id"
+                  value="' . htmlspecialchars($familyId) . '">
+                  <button class="btn green">Boeken</button>
               </form>';
       }
 

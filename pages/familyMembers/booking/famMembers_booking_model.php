@@ -23,15 +23,16 @@ function get_membership_discount($pdo, $membership)
 }
 
 // create contribution
-function set_contribution($pdo, $memberId, $familyId, $fullName, $age, $membership, $price, $bookyear)
+function set_contribution($pdo, $memberId, $familyId, $fName, $lName, $age, $membership, $price, $bookyear)
 {
-    $query = "INSERT INTO contributie (familielid_id, familie_id, naam, leeftijd, lidmaatschap, bedrag, boekjaar) 
-    VALUES(:familielid_id, :familie_id, :naam, :leeftijd,:lidmaatschap,:bedrag,:boekjaar)";
+    $query = "INSERT INTO contributie (familielid_id, familie_id, voornaam, achternaam, leeftijd, lidmaatschap, bedrag, boekjaar) 
+    VALUES(:familielid_id, :familie_id, :voornaam, :achternaam, :leeftijd,:lidmaatschap,:bedrag,:boekjaar)";
 
     $stmt = $pdo->prepare($query);
     $stmt->bindParam(":familielid_id", $memberId);
     $stmt->bindParam(":familie_id", $familyId);
-    $stmt->bindParam(":naam", $fullName);
+    $stmt->bindParam(":voornaam", $fName);
+    $stmt->bindParam(":achternaam", $lName);
     $stmt->bindParam(":leeftijd", $age);
     $stmt->bindParam(":lidmaatschap", $membership);
     $stmt->bindParam(":bedrag", $price);
@@ -40,7 +41,8 @@ function set_contribution($pdo, $memberId, $familyId, $fullName, $age, $membersh
     $stmt->execute();
 }
 
-function get_current_bookyears($pdo){
+function get_current_bookyears($pdo)
+{
     $query = "SELECT jaar FROM boekjaar";
     $stmt = $pdo->prepare($query);
     $stmt->execute();
@@ -49,7 +51,8 @@ function get_current_bookyears($pdo){
     return $result;
 }
 
-function create_bookyear($pdo,$bookyear){
+function create_bookyear($pdo, $bookyear)
+{
     $query = "INSERT INTO boekjaar (jaar) 
     VALUES(:jaar)";
 

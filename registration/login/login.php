@@ -14,7 +14,7 @@ return_to_home_page();
 <!-- content -->
 <main class="container center-main">
     <!-- prompt message -->
-    <?php is_signup_successful() ;?>
+    <?php is_signup_successful("login.php") ;?>
 
     <h1 class="heading-1 mb-1 center-text">Log in</h1>
 

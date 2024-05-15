@@ -36,8 +36,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
 
 
-        // signup user + return to login
+        // update family member
         update_familyMember($pdo, $id, $fName, $birthday, $membership);
+
+        // calculate updated booking values
+        $age = calculate_age($birthday);
+        $ageDiscount = calculate_age_discount($age);
+        $memberDiscount = get_membership_discount($pdo, $membership);
+        $price = calculate_price($memberDiscount["korting"], $ageDiscount);
+
+        // update booking
+        update_booking($pdo, $id, $fName, $age , $membership, $price);
+
+
+        // return to fammembers page
         header("Location: ../famMembers.php?familyId=$familyId&memberUpdated=success");
 
         // reset pdo

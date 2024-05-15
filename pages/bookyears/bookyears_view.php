@@ -18,7 +18,8 @@ function show_contributions()
         foreach ($results as $result) {
             echo "
                 <div class='bookyears_contribution'>
-                    <p><span>Naam: &ensp;</span>" . htmlspecialchars(ucfirst($result["naam"])) . "</p>
+                    <p><span>Naam: &ensp;</span>" . htmlspecialchars(ucfirst($result["voornaam"])) .
+                " " . htmlspecialchars(ucfirst($result["achternaam"])) . "</p>
                     <p><span>Leeftijd: &ensp;</span>  " . htmlspecialchars(ucfirst($result["leeftijd"])) . "</p>
                     <p><span>Lidmaatschap: &ensp;</span> " . htmlspecialchars(ucfirst($result["lidmaatschap"])) . "</p>
                     <p><span>Contributie: &ensp;</span> &euro; " . htmlspecialchars(ucfirst($result["bedrag"])) . "</p>
@@ -27,7 +28,7 @@ function show_contributions()
             ";
         }
     } else {
-        echo "<h2 class='heading-2 center'>Er zijn nog geen boekingen voor dit jaar</h2>";
+        echo "<h2 class='heading-2 center'>Er zijn nog geen boekingen</h2>";
     }
 
 }

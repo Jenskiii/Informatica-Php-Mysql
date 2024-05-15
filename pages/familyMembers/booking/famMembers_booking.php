@@ -17,7 +17,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $age = calculate_age($member["geboortedatum"]);
         $membership = $member["lidmaatschap"];
         $bookyear = date("Y");
-        $fullName = "$member[voornaam] $member[achternaam]";
+        $fName = $member["voornaam"];
+        $lName = $member["achternaam"];
 
         // used to calculate contribution price
         $ageDiscount = calculate_age_discount($age);
@@ -40,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
 
         // create contribution
-        create_contribution($pdo, $memberId, $familyId, $fullName, $age, $membership, $price, $bookyear);
+        create_contribution($pdo, $memberId, $familyId, $fName, $lName, $age, $membership, $price, $bookyear);
 
         header("Location: ../famMembers.php?familyId=$familyId&memberBooked=success");
 
@@ -50,6 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         die();
 
     } catch (PDOException $e) {
+        // show duplication error if member already booked
         if ($e->errorInfo[1] === 1062) {
         header("Location: ../famMembers.php?familyId=$familyId&bookingError=fail");
         // reset pdo

@@ -29,7 +29,7 @@ require_once "header.view.php";
                         <button class="btn link">Home</button>
                     </form>
                     <form action="/LedenAdministratie/pages/bookyears/bookyears_contr.php" method="post">
-                        <button class="btn link">Boekjaar</button>
+                        <button class="btn link">Boekingen</button>
                     </form>
                 </nav>
                 <div class="user">

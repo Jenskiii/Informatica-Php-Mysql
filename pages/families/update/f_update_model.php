@@ -1,5 +1,4 @@
 <?php
-
 // get clicked family
 function get_family($pdo, $id)
 {
@@ -11,7 +10,6 @@ function get_family($pdo, $id)
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
     return $result;
 }
-
 
 // update family 
 function set_family($pdo, $id, $surname, $residence, $address, $zipcode)
@@ -25,6 +23,25 @@ function set_family($pdo, $id, $surname, $residence, $address, $zipcode)
     $stmt->bindParam(":adres", $address);
     $stmt->bindParam(":postcode", $zipcode);
     $stmt->bindParam(":id", $id);
+    $stmt->execute();
+}
+// update familymember
+function set_familyMember($pdo, $familyId, $surname)
+{
+    $query = "UPDATE familielid SET achternaam = :achternaam  WHERE familie_id = :familie_id;";
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(":achternaam", $surname);
+    $stmt->bindParam(":familie_id", $familyId);
+    $stmt->execute();
+}
+
+// update booking with new family details
+function set_updated_booking($pdo, $familyId, $surname)
+{
+    $query = "UPDATE contributie SET achternaam = :achternaam WHERE familie_id = :familie_id;";
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(":achternaam", $surname);
+    $stmt->bindParam(":familie_id", $familyId);
     $stmt->execute();
 }
 

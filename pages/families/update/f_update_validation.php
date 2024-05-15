@@ -63,8 +63,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             die();
         }
 
-        // signup user + return to login
+        // update family information
         update_family($pdo, $familyId, $surname, $residence, $address, $zipcode);
+
+        // update all family member names
+        update_familyMember_names($pdo, $familyId, $surname);
+
+        // update booking
+        echo  "jansen".$familyId;
+        update_booking($pdo, $familyId, $surname);
+
         header("Location: ../../../index.php");
 
         // clear signup data
@@ -75,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         die();
 
     } catch (PDOException $e) {
-        die("Query error" . $e->getMessage());
+        die("Query error" . $e->getMessage());   
     }
 
 } else {

@@ -1,10 +1,10 @@
 <?php
-function create_contribution($pdo, $memberId, $familyId, $fullName, $age, $membership, $price, $bookyear)
+function create_contribution($pdo, $memberId, $familyId, $fName, $lname, $age, $membership, $price, $bookyear)
 {
-   set_contribution($pdo, $memberId, $familyId, $fullName, $age, $membership, $price, $bookyear);
+   set_contribution($pdo, $memberId, $familyId, $fName, $lname, $age, $membership, $price, $bookyear);
 }
 
-
+// convert birthday to age
 function calculate_age($birthday)
 {
    //explode the date to get month, day and year
@@ -15,6 +15,8 @@ function calculate_age($birthday)
    return $diff->format('%y');
 }
 
+
+// calculate the discount
 function calculate_age_discount($age)
 {
    $discount = 0;
@@ -33,6 +35,7 @@ function calculate_age_discount($age)
    return $discount;
 }
 
+// calulate the total price
 function calculate_price($membership, $discount)
 {
    $basePrice = 100;
