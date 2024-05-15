@@ -23,6 +23,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         // used to calculate contribution price
         $ageDiscount = calculate_age_discount($age);
         $membershipDiscount = get_membership_discount($pdo, $membership);
+
+        // total price
         $price = calculate_price($membershipDiscount["korting"], $ageDiscount);
 
         // fetches all bookyears
@@ -43,6 +45,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         // create contribution
         create_contribution($pdo, $memberId, $familyId, $fName, $lName, $age, $membership, $price, $bookyear);
 
+
+        // return to famMember + succes message
         header("Location: ../famMembers.php?familyId=$familyId&memberBooked=success");
 
         // reset pdo
@@ -51,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         die();
 
     } catch (PDOException $e) {
-        // show duplication error if member already booked
+        // show duplication error prompt if member already booked
         if ($e->errorInfo[1] === 1062) {
         header("Location: ../famMembers.php?familyId=$familyId&bookingError=fail");
         // reset pdo

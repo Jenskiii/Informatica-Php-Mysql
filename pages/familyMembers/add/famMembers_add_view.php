@@ -6,7 +6,7 @@ function fill_familyName()
     value="' . $_SESSION["famMembers_add_famData"]["achternaam"] . '">';
 }
 
-// input for fam id
+// input for family id
 function fill_familyId()
 {
     echo '<input type="hidden" name="famMember_add_familyId" id="famMember_add_familyId" 

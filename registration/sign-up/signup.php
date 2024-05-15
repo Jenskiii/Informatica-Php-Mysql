@@ -17,8 +17,10 @@ require_once './signup_view.php';
 
     <h1 class="heading-1 mb-1 center-text">Aanmelden</h1>
 
+    <!-- errors -->
     <?php check_signup_errors() ?>
 
+    <!-- form -->
     <form class="form" action="signup_validation.php" method="post" novalidate>
         <div class="form-group">
             <label for="gebruikersnaam">Gebruikersnaam:*</label>

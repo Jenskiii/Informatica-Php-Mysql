@@ -7,11 +7,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     try {
         require_once '../../../db/connection.php';
 
+        // delete family member
         $query = "DELETE FROM familielid WHERE id = :id;";
         $stmt = $pdo->prepare($query);
         $stmt->bindParam(":id", $familyMemberId);
         $stmt->execute();
 
+        // return to page + prompt
         header("Location:../famMembers.php?familyId=$familyId&memberDeleted=success");
         // reset pdo
         $pdo = null;

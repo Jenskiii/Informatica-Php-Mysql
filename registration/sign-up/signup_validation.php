@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 
 
-        // bind error to session + return to signup page
+        // bind errors to session  + return to signup page
         require_once ("../../includes/session.php");
         if ($errors) {
             $_SESSION["errors_signup"] = $errors;

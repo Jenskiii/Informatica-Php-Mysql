@@ -17,6 +17,7 @@ function check_family_add_errors()
 
 
 // FILL INPUT VALUES
+// if not posted show regular input,  else fill value if no errors
 function familyAdd_fill_surname()
 {
     // username 

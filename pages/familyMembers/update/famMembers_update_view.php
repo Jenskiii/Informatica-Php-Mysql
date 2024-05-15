@@ -17,7 +17,7 @@ function fill_birthday_input()
 }
 
 
-// select for memberships
+// create <select> for memberships
 function fill_membership_option()
 {
     $memberships = $_SESSION["famMembers_update_membership"];
@@ -33,6 +33,7 @@ function fill_membership_option()
     }
     echo "</select>";
 }
+
 // input for family id
 function fill_familyId_input()
 {

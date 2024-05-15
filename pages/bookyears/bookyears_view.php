@@ -1,5 +1,7 @@
 <?php
 require_once 'bookyears_model.php';
+
+// get bookyear options for <select>
 function fill_year_options()
 {
     $results = $_SESSION["bookyears_years"];
@@ -10,6 +12,7 @@ function fill_year_options()
     }
 }
 
+// paste all bookings from data base or message if no results
 function show_contributions()
 {
     $results = $_SESSION["bookyears_data"];

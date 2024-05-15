@@ -8,11 +8,14 @@ if (
         require_once 'famMembers_add_model.php';
         require_once 'famMembers_add_functions.php';
 
+        // fetch db for family + membership
         $results = get_family($pdo, $familyId);
         $memberships = get_memberships($pdo);
 
         // activate session
         require_once ("../../../includes/session.php");
+
+        // bind data to session var
         $_SESSION["famMembers_add_famData"] = $results;
         $_SESSION["famMembers_add_memberships"] = $memberships;
 

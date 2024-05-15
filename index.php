@@ -21,7 +21,7 @@ return_to_login();
         </form>
 
 
-
+        <!-- home grid -->
         <div class="home-grid">
             <?php print_families($pdo) ?>
         </div>

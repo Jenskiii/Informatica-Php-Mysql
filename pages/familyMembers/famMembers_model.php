@@ -1,4 +1,5 @@
 <?php
+// get all fam members
 function get_family_members($pdo, $familyId){
     $query = "SELECT * FROM familielid WHERE familie_id = :familie_id ORDER BY geboortedatum;";
     $stmt = $pdo->prepare($query);
@@ -9,6 +10,7 @@ function get_family_members($pdo, $familyId){
     return $results;
 }
 
+// get booking that matches fammember id + bookyear
 function get_booking($pdo, $familyMemberId){
     $currentDate = date("Y");
 

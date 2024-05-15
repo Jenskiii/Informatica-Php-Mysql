@@ -21,6 +21,7 @@ return_to_home_page();
     <!-- errormsg's -->
     <?php check_login_errors() ?>
 
+    <!-- form -->
     <form class="form" action="login_validation.php" method="post">
         <div class="form-group">
             <label for="gebruikersnaam_login">Gebruikersnaam:*</label>

@@ -22,7 +22,8 @@ require_once "header.view.php";
         <div class="header_wrapper | container">
             <p class="logo">&#128393; &nbsp;&nbsp; LedenAdministratie</p>
             <?php
-            // if logged in show nav
+
+            // if logged-in show nav
             if (isset($_SESSION["user_username"])) { ?>
                 <nav>
                     <form action="<?php echo $path; ?>index.php" method="post">
@@ -32,6 +33,7 @@ require_once "header.view.php";
                         <button class="btn link">Boekingen</button>
                     </form>
                 </nav>
+                <!-- show username -->
                 <div class="user">
                     <?php output_username() ?>
                     <form action="<?php echo $path; ?>registration/logout/logout.php">

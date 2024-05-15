@@ -8,6 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         require_once 'famMembers_update_model.php';
         require_once 'famMembers_update_functions.php';
 
+        // fetch data
         $memberships = get_memberships($pdo);
         $result = get_familyMember($pdo, $familyMemberId);
 
@@ -21,11 +22,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             "memberId" => $result["id"],
         ];
 
-        // bind error to session + return to signup page
+        // bind data to session var
         require_once ("../../../includes/session.php");
         $_SESSION["famMembers_update_data"] = $updateData;
         $_SESSION["famMembers_update_membership"] = $memberships;
 
+        // return to page
         header('Location: famMembers_update.php?familyId='.$result["familie_id"].'');
 
         // reset pdo

@@ -41,6 +41,7 @@ function set_contribution($pdo, $memberId, $familyId, $fName, $lName, $age, $mem
     $stmt->execute();
 }
 
+// fetch bookyear
 function get_current_bookyears($pdo)
 {
     $query = "SELECT jaar FROM boekjaar";
@@ -51,6 +52,7 @@ function get_current_bookyears($pdo)
     return $result;
 }
 
+// create a bookyear
 function create_bookyear($pdo, $bookyear)
 {
     $query = "INSERT INTO boekjaar (jaar) 

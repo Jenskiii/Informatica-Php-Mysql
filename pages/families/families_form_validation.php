@@ -1,6 +1,6 @@
 <?php
 
-//  VALIDATION
+//  SHARED VALIDATION
 // check if input is empty
 function is_input_empty($surname, $residence, $address, $zipcode)
 {

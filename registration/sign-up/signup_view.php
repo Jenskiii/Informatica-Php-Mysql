@@ -1,5 +1,5 @@
 <?php
-// fill input value after wrong submit
+// fill inputs value after wrong submit
 function signup_fill_username()
 {
     // username 
@@ -30,7 +30,7 @@ function signup_fill_email()
 }
 
 
-// show errors
+// show errors if wrong form validation
 function check_signup_errors()
 {
     if (isset($_SESSION['errors_signup'])) {

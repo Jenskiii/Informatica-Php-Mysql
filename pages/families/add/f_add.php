@@ -17,6 +17,7 @@ require_once 'f_add_view.php';
     <!-- show errors -->
     <?php check_family_add_errors() ?>
 
+    <!-- inputs -->
     <form class="form" action="f_add_validation.php" method="post" novalidate>
         <div class="form-group">
             <label for="family_achternaam">Achternaam:*</label>

@@ -1,5 +1,5 @@
 <?php
-
+// show errors if form validation is invalid
 function check_family_update_errors()
 {
     if (isset($_SESSION['errors_family_update'])) {

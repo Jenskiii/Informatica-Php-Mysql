@@ -37,7 +37,7 @@ function set_familyMember($pdo, $id, $fName, $birthday, $membership)
     $stmt->execute();
 }
 
-
+// get discount from membership
 function get_membership_discount($pdo, $membership)
 {
     $query = "SELECT korting FROM lidmaatschap WHERE omschrijving = :omschrijving;";
@@ -49,6 +49,7 @@ function get_membership_discount($pdo, $membership)
     return $result;
 }
 
+//  update booking
 function set_updated_booking($pdo, $id, $fName, $age , $membership, $price){
     $query = "UPDATE contributie SET voornaam = :voornaam,  leeftijd = :leeftijd,
     lidmaatschap = :lidmaatschap, bedrag = :bedrag WHERE familielid_id= :familielid_id;";

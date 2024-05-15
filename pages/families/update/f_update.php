@@ -17,6 +17,7 @@ require_once 'f_update_view.php';
     <!-- show errors -->
     <?php check_family_update_errors(); ?>
 
+    <!-- form -->
     <form class="form" action="f_update_validation.php" method="post" novalidate>
         <div class="form-group">
             <label for="f_update_achternaam">Achternaam:*</label>

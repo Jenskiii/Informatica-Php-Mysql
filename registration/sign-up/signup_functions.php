@@ -1,5 +1,5 @@
 <?php
-// check if input is empty
+// VALIDATION
 function is_input_empty($username, $pwd, $email, $pwdConfirm)
 {
     if (empty($username) || empty($pwd) || empty($email) || empty($pwdConfirm)) {
@@ -56,6 +56,8 @@ function is_email_taken($pdo, $email)
         return false;
     }
 }
+
+// CREATE USER
 
 function create_user($pdo, $username, $email, $pwd)
 {

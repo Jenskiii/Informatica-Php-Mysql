@@ -10,6 +10,7 @@ if (
 
         $bookyears = get_years($pdo);
 
+        // HANDLE search filter show all or based on year
         if (!isset($bookyear)) {
             $results = get_contributions($pdo);
         } else if ($bookyear === "all") {
@@ -22,6 +23,8 @@ if (
 
         // activate session
         require_once ("../../includes/session.php");
+
+        // bind data to session var
         $_SESSION["bookyears_data"] = $results;
         $_SESSION["bookyears_years"] = $bookyears;
 

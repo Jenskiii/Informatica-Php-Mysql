@@ -19,6 +19,7 @@ function get_contributions($pdo){
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $result;
 }
+
 // fetch all filtered contributions
 function get_filtered_contributions($pdo, $bookyear){
     $query = "SELECT * FROM contributie WHERE boekjaar = :boekjaar ORDER BY familie_id;";

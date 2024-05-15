@@ -1,5 +1,5 @@
 <?php 
-
+// get all families
 function get_families($pdo){
     $query = "SELECT * FROM families ORDER BY achternaam";
     $stmt = $pdo->prepare($query);
@@ -8,6 +8,7 @@ function get_families($pdo){
     return $results;
 }
 
+// get all contributions from selected family
 function get_contribution($pdo, $familyId){
     $query = "SELECT bedrag FROM contributie WHERE familie_id = :familie_id";
     $stmt = $pdo->prepare($query);

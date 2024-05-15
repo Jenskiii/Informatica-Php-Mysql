@@ -40,11 +40,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 
 
-        // bind error to session + return to signup page
+        // bind error to session  var + return to signup page
         require_once ("../../../includes/session.php");
         if ($errors) {
             $_SESSION["errors_family_add"] = $errors;
 
+            // save data into array so it can be used to pre-fill inputs on error
             $familyAddData = [
                 "surname" => $surname,
                 "residence" => $residence,
@@ -54,6 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             $_SESSION["family_add_data"] = $familyAddData;
 
+            // return to page
             header("Location: ./f_add.php");
             // reset pdo
             $pdo = null;

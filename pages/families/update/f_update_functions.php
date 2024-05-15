@@ -5,13 +5,14 @@ function update_family($pdo, $id, $surname, $residence, $address, $zipcode)
     set_family($pdo, $id, $surname, $residence, $address, $zipcode);
 }
 
+// update family member with new values
 
 function update_familyMember_names($pdo, $familyId, $surname)
 {
     set_familyMember($pdo, $familyId, $surname);
 }
 
-
+// update booking with new data
 function update_booking($pdo, $familyId, $surname)
 {
     set_updated_booking($pdo, $familyId, $surname);

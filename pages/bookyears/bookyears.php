@@ -13,6 +13,7 @@ require_once 'bookyears_view.php';
         <h1 class="heading-1" id="familyMembers_title">Boekingen</h1>
         <div class="container">
 
+            <!-- filter -->
             <form action="./bookyears_contr.php" method="post">
                 <div class="search-filter | form-group">
                     <select name='bookyears_filter' id='bookyears_filter'>
@@ -24,7 +25,7 @@ require_once 'bookyears_view.php';
                 </div>
             </form>
 
-
+            <!-- bookings grid -->
             <div class="bookyears_bookings">
                 <h2>Geselecteerde boekingen</h2>
                 <div class="bookyears_grid">

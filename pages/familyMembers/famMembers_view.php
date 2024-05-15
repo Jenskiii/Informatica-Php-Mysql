@@ -4,7 +4,6 @@ require_once 'famMembers_model.php';
 function show_family_members($pdo, $familyId)
 {
   $results = get_family_members($pdo, $familyId);
- 
   if ($results) {
     // table header
     echo '<table class="table">

@@ -1,9 +1,12 @@
 <?php
 //  DATABASE FUNCTIONS
+
+
 function create_family($pdo, $surname, $residence, $address, $zipcode)
 {
     set_family($pdo, $surname, $residence, $address, $zipcode);
 }
+
 
 // //  VALIDATION
 // check if address is taken

@@ -23,7 +23,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $errors["invalid_firstname"] = "Voornaam kan geen nummers bevatten!";
         }
 
-        // bind error to session + return to signup page
+
+        // bind errors to session if errors + return to fammembers page
         require_once ("../../../includes/session.php");
         if ($errors) {
             $_SESSION["famMembers_add_errors"] = $errors;
@@ -38,6 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         // signup user + return to login
         create_familyMember($pdo, $familyId, $fName, $lName, $birthday, $membership);
 
+        // return to page + success message
         header("Location: ../famMembers.php?familyId=$familyId&memberAdded=success");
 
         // clear signup data

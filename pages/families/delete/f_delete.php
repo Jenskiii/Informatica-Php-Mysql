@@ -7,11 +7,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     try {
         require_once '../../../db/connection.php';
 
+        // delete selected family
         $query = "DELETE FROM families WHERE id = :id;";
         $stmt = $pdo->prepare($query);
         $stmt->bindParam(":id", $familyId);
         $stmt->execute();
-
+        
+        // return to home
         header("Location: ../../../index.php?delete=success");
 
         // reset pdo
@@ -21,6 +23,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     } catch (PDOException $e) {
         if ($e->errorInfo[1] === 1451) {
+
+            // if family holds members show error that it can't be deleted
             header("Location: ../../../index.php?familyDeleteError=fail");
             // reset pdo
             $pdo = null;

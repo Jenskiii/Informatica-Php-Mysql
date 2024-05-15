@@ -1,5 +1,5 @@
 <?php 
-
+//  VALIDATION
 function is_input_empty($username, $pwd)
 {
     if (empty($username) || empty($pwd)) {
@@ -24,3 +24,4 @@ function is_pwd_invalid($pwd,$hashedPwd){
         return false;
     }
 }
+

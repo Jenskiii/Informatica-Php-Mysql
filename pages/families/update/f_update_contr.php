@@ -14,6 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         // bind error to session + return to signup page
         require_once ("../../../includes/session.php");
 
+        // bind fetched data to array so inputs are auto filled with current data
         $updateData = [
             "surname" => $result["achternaam"],
             "residence" => $result["woonplaats"],

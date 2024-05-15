@@ -23,8 +23,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if (is_username_invalid($result) && !empty($username)) {
             $errors["username_incorrect"] = "Gebruikersnaam is fout!";
         }
+
         // validate pwd
-        if (!is_username_invalid($result) && is_pwd_invalid($pwd, $result["wachtwoord"])) {
+        if (
+            !is_username_invalid($result) &&
+            is_pwd_invalid($pwd, $result["wachtwoord"])
+        ) {
             $errors["pwd_incorrect"] = "Wachtwoord is fout!";
         }
 
@@ -48,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $pdo = null;
         $stmt = null;
         die();
-        
+
     } catch (PDOException $e) {
         die("Query error" . $e->getMessage());
     }
